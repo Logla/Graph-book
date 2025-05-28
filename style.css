@@ -113,6 +113,7 @@ footer#toolBar {
   display: flex;
   overflow-x: auto;
   padding: 10px;
+  padding-left:2vh;
   gap: 10px;
   justify-content: start;
   position: fixed;
