@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pixel Editor</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="title">Pixel Editor</div>
+    <div class="top-buttons">
+      <button id="toggleTheme" title="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+      <button id="saveBtn" title="Save as Image"><i class="fas fa-save"></i> Save</button>
+    </div>
+  </header>
+
+  <section id="controlPanel">
+    <button id="togglePanel">🎨 Colors & Settings</button>
+    <div id="panelContent" class="hidden">
+      <label>Grid Background:
+  <input type="color" id="bgPicker" value="#ffffff" />
+</label>
+
+      <label>Mode:
+        <select id="colorMode">
+          <option value="foreground">Foreground</option>
+        </select>
+      </label>
+
+      <input type="color" id="colorPicker" value="#000000" />
+      <div class="label">Preset Colors:</div>
+      <div class="color-swatches" id="presetColors"></div>
+      <div class="label">Recent Colors:</div>
+      <div class="color-swatches" id="recentColors"></div>
+
+      <label>Canvas Size:
+        <input type="number" id="gridSizeInput" min="20" max="150" value="60" />
+      </label>
+
+      <label>Copy Size:
+        <input type="number" id="copyWidth" min="1" max="150" value="10" />
+        ×
+        <input type="number" id="copyHeight" min="1" max="150" value="10" />
+      </label>
+      <button id="applyGridSize">Apply Canvas Size</button>
+    </div>
+  </section>
+
+  <main>
+    <div class="canvas-wrapper" id="pixelCanvasWrapper">
+      <div id="pixelCanvas"></div>
+    </div>
+  </main>
+
+  <footer id="toolBar">
+    <button id="eraserBtn" title="Eraser"><i class="fas fa-eraser"></i></button>
+    <button id="clearBtn" title="Clear Grid"><i class="fas fa-trash"></i></button>
+    <button id="undoBtn" title="Undo"><i class="fas fa-undo"></i></button>
+    <button id="redoBtn" title="Redo"><i class="fas fa-redo"></i></button>
+    <button id="zoomIn" title="Zoom In"><i class="fas fa-search-plus"></i></button>
+    <button id="zoomOut" title="Zoom Out"><i class="fas fa-search-minus"></i></button>
+    <button id="copyUnitBtn" title="Copy Unit"><i class="fas fa-copy"></i></button>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+  <!-- Hidden container to hold full grid copy for saving -->
+<div id="canvasExportWrapper" style="position: absolute; top: -9999px; left: -9999px;"></div>
+
+</body>
+</html>
